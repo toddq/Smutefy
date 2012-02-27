@@ -131,7 +131,8 @@
 {
 	char lineC[2048];
 	//FILE *fp = popen("syslog -F '$(Message)' -w 1 -E none -d -k Sender GrowlHelperApp", "r");
-	FILE *fp = popen("syslog -F '$(Message)' -w 1 -E none -d", "r");
+	//FILE *fp = popen("syslog -F '$(Message)' -w 1 -E none -d", "r");
+	FILE *fp = popen("syslog -F '$(Message)' -w 1 -E none", "r");
 	
 	NSString *buffer = nil;
 	NSString *line;
