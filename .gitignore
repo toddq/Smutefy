@@ -1,1 +1,6 @@
 .DS_Store
+
+build
+smutefy.xcodeproj/*.mode1v3
+smutefy.xcodeproj/*.pbxuser
+
