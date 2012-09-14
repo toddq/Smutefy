@@ -21,6 +21,7 @@
 	NSTextView *regex;
 	NSTextField *labelValid;
 	NSMenuItem *muteAndAddMenu;
+	NSMenuItem *unmuteMenu;
 }
 
 - (void)refreshSaveddevices;
@@ -35,8 +36,10 @@
 - (NSMutableArray *)systemOutputDevices;
 - (void)setRegex:(NSTextView *)item;
 - (void)setMuteAndAdd:(NSMenuItem *)item;
+- (void)setUnmute:(NSMenuItem *)item;
 - (void)changeMuteAndAddStatus:(BOOL)enabled;
 - (void)muteAndBlacklist;
+- (void)unmute;
 - (NSString *)escapeRegex:(NSString *)rule;
 - (void)syncRegexPreferences;
 - (void)setLabelValid:(NSTextField *)item;

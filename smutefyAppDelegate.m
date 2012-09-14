@@ -40,6 +40,7 @@
 	[app setcheckUseCustomDevice:checkUseCustomDevice];
 	[app setRegex:regexTextView];
 	[app setMuteAndAdd:muteAndAddMenu];
+	[app setUnmute:unmuteMenu];
 	[app setLabelValid:labelValid];
 	
 	[app setupGrowl];
@@ -91,6 +92,10 @@
 - (IBAction)muteAndBlacklist:(id)sender
 {
 	[app muteAndBlacklist];
+}
+- (IBAction)unmute:(id)sender
+{
+	[app unmute];
 }
 
 - (IBAction)validateRegex:(id)sender
