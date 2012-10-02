@@ -208,6 +208,15 @@
 
 }
 
+- (void)unmute
+{
+	// unmute
+	[self changeAudioDevice:FALSE];
+	[self changeMuteAndAddStatus:TRUE];
+	
+}
+
+
 - (NSString *)escapeRegex:(NSString *)rule
 {	
 	rule = [rule stringByReplacingOccurrencesOfString:@"\\" withString:@"\\\\"];
@@ -307,6 +316,7 @@
 - (void)changeMuteAndAddStatus:(BOOL)enabled
 {
 	[muteAndAddMenu setEnabled:enabled];
+	[unmuteMenu setEnabled:!enabled];
 }
 
 - (BOOL)isAd:(NSString *)message
@@ -403,6 +413,11 @@
 - (void)setMuteAndAdd:(NSMenuItem *)item
 {
 	muteAndAddMenu = item;
+}
+
+- (void)setUnmute:(NSMenuItem *)item
+{
+	unmuteMenu = item;
 }
 
 - (void)setLabelValid:(NSTextField *)item
