@@ -271,20 +271,37 @@
 
 - (void)changeAudioDevice:(BOOL)mute
 {
-	NSString *command;
-	
+    // old code - still want to change the statusItem image
+//	NSString *command;
+//	
 	if(mute)
 	{
 		[statusItem setImage:[NSImage imageNamed:@"status_active.png"]];
-		command = [NSString stringWithFormat:@"%@ -t output -s '%@'", pathToSwitchAudio, [self adOutput]];
+//		command = [NSString stringWithFormat:@"%@ -t output -s '%@'", pathToSwitchAudio, [self adOutput]];
 	}
 	else
 	{
 		[statusItem setImage:[NSImage imageNamed:@"status_normal.png"]];
-		command = [NSString stringWithFormat:@"%@ -t output -s '%@'", pathToSwitchAudio, defaultOutput];
+//		command = [NSString stringWithFormat:@"%@ -t output -s '%@'", pathToSwitchAudio, defaultOutput];
 	}
-	
-	system([command UTF8String]);
+//	
+//	system([command UTF8String]);
+    
+    // new plan
+    // if mute
+    if(mute)
+    {
+    //    mute system volume.  this will cause Spotify to pause.
+        // from CGEvent.h
+        CGEventRef event = CGEventCreateKeyboardEvent(NULL, (CGKeyCode)7, true);
+    //    emulate media "play" key to resume it (better yet would be using Spotify API)
+        
+        CFRelease(event);
+    }
+    else
+    {
+    //    unmute system volume
+    }
 }
 
 - (void)changeMuteAndAddStatus:(BOOL)enabled
